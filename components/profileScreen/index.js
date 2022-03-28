@@ -4,7 +4,7 @@ import { View, Text, Pressable, Keyboard, TouchableWithoutFeedback } from 'react
 import { styles } from './styles';
 import { CheckmarkIcon } from '../../instruments/svg/checkMark';
 import Toast from 'react-native-toast-message';
-import {FloatingLabelInput} from 'react-native-floating-label-input';
+import { FloatingLabelInput } from 'react-native-floating-label-input';
 
 export const ProfileScreen = () => {
 
@@ -12,7 +12,6 @@ export const ProfileScreen = () => {
   const [phoneNum, setPhoneNum] = useState('')
   const [password, setPassword] = useState()
   const [show, setShow] = useState(false);
-  const [startPosition, setStartPosition] = useState(4)
   const defaultNum = '+7 (999) 123-45-67'
   const defaultPass = 123
 
@@ -31,37 +30,32 @@ export const ProfileScreen = () => {
           <Text style={styles.headerText}> Вход </Text>
         </View>
         <View style={styles.phpneInputView}>
-        <FloatingLabelInput
-        label="Телефон*"
-        value={phoneNum}
-        mask = "+7 (999) 999-99-99" 
-        hint="+7 (___) ___-__-__"
-        keyboardType="numeric"
-        onChangeText={value => setPhoneNum(value)}
-        containerStyles={styles.textInput}
-        leftComponent = {phoneNum == defaultNum &&
-          <View style={styles.phoneInputIcon}>
-            <CheckmarkIcon />
-          </View>
-        }
-      />
-          {phoneNum == defaultNum &&
-            <View style={styles.phoneInputIcon}>
-              <CheckmarkIcon />
-            </View>
-          }
+          <FloatingLabelInput
+            label="Телефон*"
+            value={phoneNum}
+            mask="+7 (999) 999-99-99"
+            hint="+7 (___) ___-__-__"
+            keyboardType="numeric"
+            onChangeText={value => setPhoneNum(value)}
+            containerStyles={styles.textInput}
+            leftComponent={phoneNum == defaultNum &&
+              <View style={styles.phoneInputIcon}>
+                <CheckmarkIcon />
+              </View>
+            }
+          />
         </View>
         <View style={styles.phpneInputView}>
-        <FloatingLabelInput
-        label={'Пароль*'}
-        isPassword
-        togglePassword={show}
-        value={password}
-        onChangeText={value => setPassword(value)}
-        customShowPasswordComponent={<Text>Show</Text>}
-        customHidePasswordComponent={<Text>Hide</Text>}
-        containerStyles={styles.textInput}
-      />
+          <FloatingLabelInput
+            label={'Пароль*'}
+            isPassword
+            togglePassword={show}
+            value={password}
+            onChangeText={value => setPassword(value)}
+            customShowPasswordComponent={<Text>Show</Text>}
+            customHidePasswordComponent={<Text>Hide</Text>}
+            containerStyles={styles.textInput}
+          />
         </View>
 
         <View style={styles.enterSection} >
