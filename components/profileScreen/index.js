@@ -1,17 +1,13 @@
 import React, { useState } from 'react'
 import { View, Text, Pressable, Keyboard, TouchableWithoutFeedback } from 'react-native';
-// import { TextInput } from "react-native-paper";
 import { styles } from './styles';
 import { CheckmarkIcon } from '../../instruments/svg/checkMark';
 import Toast from 'react-native-toast-message';
 import { FloatingLabelInput } from 'react-native-floating-label-input';
 
 export const ProfileScreen = () => {
-
-  const [isPassVisible, setPassVisible] = useState(true)
   const [phoneNum, setPhoneNum] = useState('')
   const [password, setPassword] = useState()
-  const [show, setShow] = useState(false);
   const defaultNum = '+7 (999) 123-45-67'
   const defaultPass = 123
 
@@ -33,7 +29,7 @@ export const ProfileScreen = () => {
           <FloatingLabelInput
             label="Телефон*"
             value={phoneNum}
-            mask="+7 (999) 999-99-99"
+            mask="(999) 999-99-99"
             hint="+7 (___) ___-__-__"
             keyboardType="numeric"
             onChangeText={value => setPhoneNum(value)}
@@ -49,7 +45,6 @@ export const ProfileScreen = () => {
           <FloatingLabelInput
             label={'Пароль*'}
             isPassword
-            togglePassword={show}
             value={password}
             onChangeText={value => setPassword(value)}
             customShowPasswordComponent={<Text>Show</Text>}
@@ -57,7 +52,6 @@ export const ProfileScreen = () => {
             containerStyles={styles.textInput}
           />
         </View>
-
         <View style={styles.enterSection} >
           <Pressable style={({ pressed }) => [styles.enter, { opacity: pressed ? 0.5 : 1 }]} onPress={() => handleEnterBtn()}>
             <Text style={styles.enterText} > Войти</Text>
@@ -72,7 +66,6 @@ export const ProfileScreen = () => {
             <Text style={styles.register}>Зарегистрируйтесь</Text>
           </Pressable>
         </View>
-
       </View>
     </TouchableWithoutFeedback>
   )

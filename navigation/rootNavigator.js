@@ -8,7 +8,6 @@ export const RootNavigation = () => {
         <NavigationContainer  >
             <TabNavigator />
             <Toast />
-
         </NavigationContainer>
     );
 }

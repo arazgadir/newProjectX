@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
 
-
 export const styles = StyleSheet.create({
     iconStyle: {
         marginBottom: 10,
@@ -16,6 +15,5 @@ export const styles = StyleSheet.create({
         paddingVertical: 5,
         height: 60,
     },
- 
 });
 
